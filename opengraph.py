@@ -10,15 +10,11 @@ def fetch_metadata(url):
     """
     Return a dictionary of OpenGraph metadata found in HTML of given url
     """
-    """
-    Get lyrics from Seeds Lyrics API. Returns empty string if song not found
-    """
     url_ = f'https://opengraph.lewagon.com/?url={url}'
     response = requests.get(url_)
     if response.status_code != 200:
         return None
     data = response.json()
-    #print(data)
     return data['data']
 
 # To manually test, please uncomment the following lines and run `python opengraph.py`:
